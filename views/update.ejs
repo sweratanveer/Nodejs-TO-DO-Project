@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update page</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <%- include('navbar') %>
+
+    <main class="page-container">
+        <section class="form-box">
+
+            <h1>Update Task</h1>
+
+            <!-- ONLY FIX: correct route with id -->
+            <form action="/update/<%= result._id %>" method="post" class="task-form">
+
+                <div class="form-group">
+                    <label for="taskTitle">Task Title</label>
+                    <input 
+                        type="text" 
+                        id="taskTitle" 
+                        name="taskTitle" 
+                        value="<%= result.taskTitle %>" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Description</label>
+                    <textarea 
+                        id="taskDescription" 
+                        name="taskDescription" 
+                        rows="4"
+                    ><%= result.taskDescription %></textarea>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="dueDate">Due Date</label>
+                        <input 
+                            type="date" 
+                            id="dueDate" 
+                            name="dueDate"
+                            value="<%= result.dueDate %>"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select id="priority" name="priority">
+
+                            <option value="low" <%= result.priority === "low" ? "selected" : "" %>>
+                                Low
+                            </option>
+
+                            <option value="medium" <%= result.priority === "medium" ? "selected" : "" %>>
+                                Medium
+                            </option>
+
+                            <option value="high" <%= result.priority === "high" ? "selected" : "" %>>
+                                High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="form-button">
+                    Update Task
+                </button>
+
+            </form>
+
+        </section>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<%- include('navbar') %>
+
+<div class="container">
+    <h1>Task list Page</h1>
+
+    <form action="/delete-multiple" method="post">
+
+        <ul class="task-list">
+
+            <% for(let task=0; task<result.length; task++) { %>
+
+            <li class="task-item">
+
+                <!-- ✅ checkbox + title SAME LINE -->
+                <div class="task-header">
+                    <input 
+                        type="checkbox" 
+                        name="taskIds" 
+                        value="<%= result[task]._id %>"
+                        class="task-checkbox"
+                    >
+
+                    <div class="task-taskTitle">
+                        <%= result[task].taskTitle %>
+                    </div>
+                </div>
+
+                <div class="task-taskDescription">
+                    <%= result[task].taskDescription %>
+                </div>
+
+                <!-- ✅ date + priority -->
+                <div class="task-meta">
+                    <div class="task-dueDate">
+                        <%= result[task].dueDate %>
+                    </div>
+
+                    <div class="task-priority">
+                        <%= result[task].priority %>
+                    </div>
+                </div>
+
+                <!-- ✅ buttons moved DOWN -->
+                <div class="task-actions">
+
+                    <a href="/update/<%= result[task]._id %>" class="update-item">
+                        Update Task
+                    </a>
+
+                    <a href="/delete/<%= result[task]._id %>" class="delete-item">
+                        Delete Task
+                    </a>
+
+                </div>
+
+            </li>
+
+            <% } %>
+
+        </ul>
+
+        <button type="submit" class="delete-multiple-btn">
+            Delete Selected Tasks
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
