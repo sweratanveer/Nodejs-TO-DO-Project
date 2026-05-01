@@ -2,6 +2,14 @@
   "name": "nodejs-to-do-project",
   "version": "1.0.0",
   "description": "Node js Project",
+  "homepage": "https://github.com/sweratanveer/Nodejs-TO-DO-Project#readme",
+  "bugs": {
+    "url": "https://github.com/sweratanveer/Nodejs-TO-DO-Project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sweratanveer/Nodejs-TO-DO-Project.git"
+  },
   "license": "ISC",
   "author": "Swera Tanveer",
   "type": "module",
